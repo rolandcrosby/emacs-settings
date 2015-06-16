@@ -28,7 +28,8 @@ re-downloaded in order to locate PACKAGE."
 	     evil-surround
 	     solarized-theme
 	     powerline-evil
-	     flycheck))
+	     flycheck
+	     company))
   (require-package x))
 
 (setq evil-search-module 'evil-search
@@ -54,4 +55,7 @@ re-downloaded in order to locate PACKAGE."
   (load-theme current-theme))
 
 (tool-bar-mode 0)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'after-init-hook 'global-flycheck-mode)
+(add-hook 'after-init-hook 'global-company-mode)
+(define-key evil-normal-state-map "Q" 'close-window)
+; todo: ctrl-tab, ctrl-shift-tab to move between tabs
