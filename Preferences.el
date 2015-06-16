@@ -29,7 +29,7 @@ re-downloaded in order to locate PACKAGE."
 	     solarized-theme
 	     powerline-evil
 	     flycheck
-	     company)
+	     company))
   (require-package x))
 
 (setq evil-search-module 'evil-search
