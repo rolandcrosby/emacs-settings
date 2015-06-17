@@ -58,4 +58,8 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (add-hook 'after-init-hook 'global-company-mode)
 (define-key evil-normal-state-map "Q" 'close-window)
-; todo: ctrl-tab, ctrl-shift-tab to move between tabs
+(global-set-key [C-tab] 'next-tab-or-buffer)
+(global-set-key [C-S-tab] 'previous-tab-or-buffer)
+
+(setq-default indicate-empty-lines nil)
+(set-fringe-style nil)
