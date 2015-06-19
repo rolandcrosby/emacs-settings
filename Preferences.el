@@ -6,7 +6,7 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 
 ;;; from purcell/emacs.d
 (defun require-package (package &optional min-version no-refresh)
@@ -26,6 +26,7 @@ re-downloaded in order to locate PACKAGE."
 (dolist (x '(
 	     evil
 	     evil-surround
+	     evil-snipe
 	     solarized-theme
 	     flycheck
 	     company
@@ -40,6 +41,14 @@ re-downloaded in order to locate PACKAGE."
 (evil-mode t)
 (require 'evil-surround)
 (global-evil-surround-mode 1)
+(require 'evil-snipe)
+(evil-snipe-mode 1)
+(evil-snipe-override-mode 1)
+(setq evil-snipe-repeat-keys t)
+(setq evil-snipe-scope 'whole-visible)
+(setq evil-snipe-repeat-scope 'whole-buffer)
+(define-key evil-normal-state-map (kbd "<SPC>") 'evil-snipe-s)
+(define-key evil-normal-state-map (kbd "s") 'evil-substitute)
 
 (require 'linum)
 (setq linum-format " %d ")
@@ -64,9 +73,8 @@ re-downloaded in order to locate PACKAGE."
 ; ZQ cmd-w don't save
 ; comment/uncomment
 ; script or alias to open from cmd line
-; why does the divider move around so much when i type
-
 
 (setq-default indicate-empty-lines nil)
 (set-fringe-style nil)
 (setq magit-last-seen-setup-instructions "1.4.0") ; suppress magit warning at startup
+(evil-ex-define-cmd "git" 'magit-status)
