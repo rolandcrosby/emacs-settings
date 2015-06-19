@@ -40,5 +40,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(echo-area ((t (:stipple nil :strike-through nil :underline nil :slant normal :weight normal :width normal :family "Menlo"))))
- '(mode-line ((t (:inherit aquamacs-fixed-width :background "#073642" :foreground "#839496" :box (:line-width 1 :color "#073642" :style unspecified) :strike-through nil :overline "#073642" :underline nil :slant normal :weight normal :width normal)))))
+ '(echo-area ((t (:inherit aquamacs-fixed-width))))
+ '(mode-line ((t (:inherit aquamacs-fixed-width)))))
