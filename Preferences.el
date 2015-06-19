@@ -27,9 +27,9 @@ re-downloaded in order to locate PACKAGE."
 	     evil
 	     evil-surround
 	     solarized-theme
-	     powerline-evil
 	     flycheck
-	     company))
+	     company
+	     magit))
   (require-package x))
 
 (setq evil-search-module 'evil-search
@@ -40,7 +40,6 @@ re-downloaded in order to locate PACKAGE."
 (evil-mode t)
 (require 'evil-surround)
 (global-evil-surround-mode 1)
-(require 'powerline-evil)
 
 (require 'linum)
 (setq linum-format " %d ")
@@ -60,6 +59,13 @@ re-downloaded in order to locate PACKAGE."
 (define-key evil-normal-state-map "Q" 'close-window)
 (global-set-key [C-tab] 'next-tab-or-buffer)
 (global-set-key [C-S-tab] 'previous-tab-or-buffer)
+; todo: unmap ctrl-c, use esc to close emacs prompts
+; ZZ to be cmd-s cmd-w
+; ZQ cmd-w don't save
+; comment/uncomment
+; script or alias to open from cmd line
+; why does the divider move around so much when i type
+
 
 (setq-default indicate-empty-lines nil)
 (set-fringe-style nil)
