@@ -78,3 +78,6 @@ re-downloaded in order to locate PACKAGE."
 (set-fringe-style nil)
 (setq magit-last-seen-setup-instructions "1.4.0") ; suppress magit warning at startup
 (evil-ex-define-cmd "git" 'magit-status)
+
+(global-visual-line-mode 1)
+(auto-fill-mode -1)

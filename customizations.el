@@ -7,6 +7,7 @@
  '(aquamacs-autoface-mode nil)
  '(aquamacs-customization-version-id 307 t)
  '(aquamacs-tool-bar-user-customization nil t)
+ '(auto-fill-function nil t)
  '(custom-safe-themes
    (quote
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
@@ -29,12 +30,26 @@
       (font-backend mac-ct ns)
       (left-fringe)
       (right-fringe . 0))))
+ '(fringe-indicator-alist
+   (quote
+    ((continuation nil nil)
+     (truncation left-truncation right-truncation)
+     (continuation left-continuation right-continuation)
+     (overlay-arrow . right-triangle)
+     (up . up-arrow)
+     (down . down-arrow)
+     (top top-left-angle top-right-angle)
+     (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
+     (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
+     (empty-line . empty-line)
+     (unknown . question-mark))) t)
  '(global-linum-mode t)
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode (quote regular) t)
- '(one-buffer-one-frame-mode nil nil (aquamacs-frame-setup))
  '(tabbar-mode t nil (tabbar))
- '(visual-line-mode nil t))
+ '(text-mode-hook nil)
+ '(visual-line-mode t t)
+ '(word-wrap t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
