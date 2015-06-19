@@ -69,3 +69,4 @@ re-downloaded in order to locate PACKAGE."
 
 (setq-default indicate-empty-lines nil)
 (set-fringe-style nil)
+(setq magit-last-seen-setup-instructions "1.4.0") ; suppress magit warning at startup
