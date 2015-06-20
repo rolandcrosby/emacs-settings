@@ -116,12 +116,20 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (blink-cursor-mode -1)
 
-; todo: unmap ctrl-c, use esc to close emacs prompts
+(defun reveal-in-finder ()
+  (interactive)
+  (start-process "finder" nil "open"  "--reveal" buffer-file-name))
+(define-key evil-normal-state-map "gof" 'reveal-in-finder)
+
+(defun open-terminal-here ()
+  (interactive)
+  (start-process "iterm" nil "open" "-a" "iTerm" (file-name-directory buffer-file-name)))
+(define-key evil-normal-state-map "got" 'open-terminal-here)
+
+; todo: unmap ctrl-c
 ; ZZ to be cmd-s cmd-w
 ; ZQ cmd-w don't save
 ; comment/uncomment
 ; disable non-graphical tooltips in flycheck
 ; disable weird indentation
-; vim gtfo - finder, terminal
-; solidify emacs/vim mode keys
 ; figure out modeline in aquamacs
