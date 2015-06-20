@@ -30,7 +30,9 @@ re-downloaded in order to locate PACKAGE."
 	     solarized-theme
 	     flycheck
 	     company
-	     magit))
+	     magit
+	     pos-tip
+	     flycheck-pos-tip))
   (require-package x))
 
 (setq evil-search-module 'evil-search
@@ -68,11 +70,14 @@ re-downloaded in order to locate PACKAGE."
 (define-key evil-normal-state-map "Q" 'close-window)
 (global-set-key [C-tab] 'next-tab-or-buffer)
 (global-set-key [C-S-tab] 'previous-tab-or-buffer)
-; todo: unmap ctrl-c, use esc to close emacs prompts
-; ZZ to be cmd-s cmd-w
-; ZQ cmd-w don't save
-; comment/uncomment
-; script or alias to open from cmd line
+
+; graphical tooltips for flycheck errors
+(when (display-graphic-p (selected-frame))
+    (require 'pos-tip)
+    (require 'flycheck-pos-tip)
+    (eval-after-load 'flycheck
+	'(custom-set-variables
+		'(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
 
 (setq-default indicate-empty-lines nil)
 (set-fringe-style nil)
@@ -99,3 +104,24 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
+
+; cursor colors matching solarized vim theme
+(setq evil-emacs-state-cursor '("#cb4b16" box)) ; orange
+(setq evil-normal-state-cursor '("#268bd2" box)) ; blue
+(setq evil-visual-state-cursor '("#d33682" box)) ; magenta
+(setq evil-insert-state-cursor '("#859900" bar)) ; green
+(setq evil-replace-state-cursor '("#859900" bar)) ; green
+(setq evil-operator-state-cursor '("#268bd2" hollow)) ; blue
+
+(blink-cursor-mode -1)
+
+; todo: unmap ctrl-c, use esc to close emacs prompts
+; ZZ to be cmd-s cmd-w
+; ZQ cmd-w don't save
+; comment/uncomment
+; disable non-graphical tooltips in flycheck
+; disable weird indentation
+; vim gtfo - finder, terminal
+; solidify emacs/vim mode keys
+; figure out modeline in aquamacs
